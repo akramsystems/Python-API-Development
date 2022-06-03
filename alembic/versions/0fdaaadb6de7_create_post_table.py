@@ -19,7 +19,7 @@ depends_on = None
 def upgrade():
     # put logic for upgrade or making additive changes
     op.create_table(
-        "Posts",
+        "posts",
         sa.Column("id", sa.Integer, nullable=False, primary_key=True),
         sa.Column("title", sa.String, nullable=False)
     )
@@ -27,4 +27,4 @@ def upgrade():
 
 def downgrade():
     # Put logic for rolling back or making subtractive changes
-    op.drop_table("Posts")
+    op.drop_table("posts")
