@@ -59,3 +59,4 @@ watchgod==0.7
 websockets==10.2
 wrapt==1.13.3
 zipp==3.8.0
+gunicorn==20.1.0

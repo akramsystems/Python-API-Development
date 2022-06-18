@@ -3,3 +3,5 @@ venv/
 __pycache__
 *.cpython*
 .env
+gunicorn.service
+nginx
