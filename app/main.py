@@ -10,7 +10,7 @@ from .routers import post, user, authentication, vote
 from .config import settings
 
 # no longer need this command with alembic
-models.Base.metadata.create_all(bind=engine)
+# models.Base.metadata.create_all(bind=engine)
 
 
 app = FastAPI()
