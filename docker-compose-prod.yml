@@ -3,7 +3,7 @@ services:
   api:
     image: aliakram/fastapi
     ports:
-      - "8000:8000"
+      - "80:8000"
     environment:
       - DATABASE_HOSTNAME=${DATABASE_HOSTNAME}
       - DATABASE_PORT=${DATABASE_PORT}
