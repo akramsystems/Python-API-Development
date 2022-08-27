@@ -19,12 +19,12 @@ async def login(user_credentials: OAuth2PasswordRequestForm = Depends(), db: Ses
     # check if the username exists
     if not user:
         raise HTTPException(
-            status_code=status.HTTP_403_NOT_FOUND, detail="Invalid Credentials")
+            status_code=status.HTTP_403_FORBIDDEN, detail="Invalid Credentials")
 
     # check if the password matches the hashed password
     if not utils.verify(user_credentials.password, user.password):
         raise HTTPException(
-            status_code=status.HTTP_403_NOT_FOUND, detail="Invalid Credentials")
+            status_code=status.HTTP_403_FORBIDDEN, detail="Invalid Credentials")
 
     # Generate an access token for the given user using our secret token
     access_token = oauth2.create_access_token(data={"user_id": user.id})

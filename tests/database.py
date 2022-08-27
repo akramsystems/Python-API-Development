@@ -15,15 +15,16 @@ engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
 # used for actually talking to the database
 TestingSessionLocal = sessionmaker(
-    autocommit=False, autoflush=False, bind=engine)
+    autocommit=False, autoflush=False, bind=engine
+)
 
 Base.metadata.create_all(bind=engine)
 
 
 @pytest.fixture(scope="module")
 def session():
-    """DATABASE SESSION"""
-
+    """TEST DATABASE SESSION"""
+    print("my session fixture ran")
     Base.metadata.drop_all(bind=engine)
     Base.metadata.create_all(bind=engine)
 
@@ -36,7 +37,7 @@ def session():
 
 @pytest.fixture
 def client(session):
-    """FASTAPI CLIENT"""
+    """TEST FASTAPI CLIENT"""
     def override_get_db():
         """Dependency for using ORM"""
         try:
