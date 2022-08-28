@@ -30,7 +30,7 @@ jobs:
       postgres:
         image: postgres
         env:
-          POSTGRES_DB: ${ secrets.DATABASE_NAME }}
+          POSTGRES_DB: ${{ secrets.DATABASE_NAME }}
           POSTGRES_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}_test
         # Set health checks to wait until postgres has started
         ports:
