@@ -12,6 +12,7 @@ on: [push, pull_request]
 #     - "feature-branch"
 
 jobs:
+  
   job1:
     environment:
       name: testing
@@ -24,6 +25,21 @@ jobs:
       SECRET_KEY: ${{secrets.SECRET_KEY}}
       ALGORITHM : ${{secrets.ALGORITHM}}
       ACCESS_TOKEN_EXPIRE_MINUTES: ${{secrets.ACCESS_TOKEN_EXPIRE_MINUTES}}
+    
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_DB: ${{secrets.DATABASE_NAME}}
+          POSTGRES_PASSWORD: ${{secrets.DATABASE_PASSWORD}}_test
+        ports: ["${{secrets.DATABASE_PORT}}:${{secrets.DATABASE_PORT}}"]
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     runs-on: ubuntu-latest # machine we are running job on
     strategy:
       matrix:
