@@ -17,14 +17,14 @@ jobs:
     environment:
       name: testing
     env:
-      DATABASE_HOSTNAME: ${{secrets.DATABASE_HOSTNAME}}
-      DATABASE_PORT: ${{secrets.DATABASE_PORT}}
-      DATABASE_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
-      DATABASE_NAME: ${{secrets.DATABASE_NAME}}
-      DATABASE_USERNAME: ${{secrets.DATABASE_USERNAME}}
-      SECRET_KEY: ${{secrets.SECRET_KEY}}
-      ALGORITHM: ${{secrets.ALGORITHM}}
-      ACCESS_TOKEN_EXPIRE_MINUTES: ${{secrets.ACCESS_TOKEN_EXPIRE_MINUTES}}
+      DATABASE_HOSTNAME: ${{ secrets.DATABASE_HOSTNAME }}
+      DATABASE_PORT: ${{ secrets.DATABASE_PORT }}
+      DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+      DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
+      DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      ALGORITHM: ${{ secrets.ALGORITHM }}
+      ACCESS_TOKEN_EXPIRE_MINUTES: ${{ secrets.ACCESS_TOKEN_EXPIRE_MINUTES }}
     
     services:
       postgres:
@@ -32,7 +32,6 @@ jobs:
         env:
           POSTGRES_DB: ${{secrets.DATABASE_NAME}}
           POSTGRES_PASSWORD: ${{secrets.DATABASE_PASSWORD}}_test
-        ports: ["${{secrets.DATABASE_PORT}}:${{secrets.DATABASE_PORT}}"]
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
