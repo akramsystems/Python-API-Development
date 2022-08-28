@@ -24,7 +24,7 @@ Base.metadata.create_all(bind=engine)
 @pytest.fixture(scope="module")
 def session():
     """TEST DATABASE SESSION"""
-    print("my session fixture ran")
+    print("Database Fixutre Session")
     Base.metadata.drop_all(bind=engine)
     Base.metadata.create_all(bind=engine)
 
