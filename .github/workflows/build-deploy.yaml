@@ -25,7 +25,6 @@ jobs:
       SECRET_KEY: ${{ secrets.SECRET_KEY }}
       ALGORITHM: ${{ secrets.ALGORITHM }}
       ACCESS_TOKEN_EXPIRE_MINUTES: ${{ secrets.ACCESS_TOKEN_EXPIRE_MINUTES }}
-      POSTGRES_PORT: ${{ secrets.DATABASE_PORT }}
     
     services:
       postgres:
