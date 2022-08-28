@@ -2,17 +2,28 @@ name: Build and Deploy Code
 
 # Defines what triggers the workflow
 on: [push, pull_request]
-  # push: # trigger on push
-  #   branches: # branches we want to trigger on push
-  #     - "main"
-  #     - "feature-branch"
-  # pull_request:
-  #   branches:
-  #     - "main"
-  #     - "feature-branch"
+# push: # trigger on push
+#   branches: # branches we want to trigger on push
+#     - "main"
+#     - "feature-branch"
+# pull_request:
+#   branches:
+#     - "main"
+#     - "feature-branch"
 
 jobs:
   job1:
+    environment:
+      name: testing
+    env:
+      DATABASE_HOSTNAME: ${{DATABASE_HOSTNAME}}
+      DATABASE_PORT: ${{DATABASE_PORT}}
+      DATABASE_PASSWORD: ${{DATABASE_PASSWORD}}
+      DATABASE_NAME: ${{DATABASE_NAME}}
+      DATABASE_USERNAME: ${{DATABASE_USERNAME}}
+      SECRET_KEY: ${{SECRET_KEY}}
+      ALGORITHM : ${{ALGORITHM}}
+      ACCESS_TOKEN_EXPIRE_MINUTES: ${{ACCESS_TOKEN_EXPIRE_MINUTES}}
     runs-on: ubuntu-latest # machine we are running job on
     strategy:
       matrix:
