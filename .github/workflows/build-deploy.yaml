@@ -35,7 +35,7 @@ jobs:
           POSTGRES_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}_test
         # Set health checks to wait until postgres has started
         ports:
-          - "$POSTGRES_PORT"
+          - $POSTGRES_PORT
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
