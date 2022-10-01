@@ -37,4 +37,4 @@ app.include_router(vote.router)
 
 @ app.get("/")
 async def root():
-    return {"message": "This is the main page, by Ali Akram"}
+    return {"message": "This is the main page, by Ali Akram,\n\n deploy from CI/CD pipeline"}
