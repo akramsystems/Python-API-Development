@@ -103,7 +103,7 @@ jobs:
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}} # Must be unique in Heroku
           heroku_email: ${{secrets.HEROKU_EMAIL}} 
       - name: Deploy to Ubuntu Server
-        uses: appleboy/ssh-action@v0.1.5
+        uses: appleboy/ssh-action@master
         with:
           host: ${{secrets.PROD_HOST}}
           username: ${{secrets.PROD_USERNAME}}
@@ -113,11 +113,9 @@ jobs:
             git pull 
             echo ${{secrets.PROD_PASSWORD}} | sudo -S systemctl restart api
 
-      
-  
-  #     - name: Lint with flake8
-  #       run: |
-  #         # stop the build if there are Python syntax errors or undefined names
-  #         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-  #         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-  #         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+#     - name: Lint with flake8
+#       run: |
+#         # stop the build if there are Python syntax errors or undefined names
+#         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+#         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+#         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
