@@ -102,7 +102,6 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}} # Must be unique in Heroku
           heroku_email: ${{secrets.HEROKU_EMAIL}} 
-      # login to ubuntu server
       - name: Deploy to Ubuntu Server
         uses: appleboy/ssh-action@v0.1.5
         with:
@@ -114,13 +113,7 @@ jobs:
             git pull 
             echo ${{secrets.PROD_PASSWORD}} | sudo -S systemctl restart api
 
-
-      # cd /app/src
-      # git pull
-      # systemctl retart api
-        
-
-
+      
   
   #     - name: Lint with flake8
   #       run: |
